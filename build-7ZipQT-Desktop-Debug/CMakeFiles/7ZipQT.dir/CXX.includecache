@@ -11,6 +11,10 @@ mainwindow.h
 /home/rabeles/Documents/7zipQT/7ZipQT/mainwindow.h
 ./ui_mainwindow.h
 /home/rabeles/Documents/7zipQT/7ZipQT/ui_mainwindow.h
+stdio.h
+/home/rabeles/Documents/7zipQT/7ZipQT/stdio.h
+iostream
+-
 
 /home/rabeles/Documents/7zipQT/7ZipQT/mainwindow.h
 QMainWindow

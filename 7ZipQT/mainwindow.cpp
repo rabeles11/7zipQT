@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-
+#include "stdio.h"
+#include <iostream>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -50,9 +51,10 @@ void MainWindow::on_StartButton_clicked()
             QProcess extractionProcess;
             QString extractProgram = "7z2107-x64.exe";
             QStringList extractArguments;
-            extractArguments << "x"; // extract files and directories
+            extractArguments << "e"; // extract files and directories
             extractArguments << "-y"; // suppress questions
             extractArguments << "-o" + file.absolutePath() + "/" + file.baseName(); // extract to installdir
+            std::cout << extractProgram.toStdString() << " " << extractArguments.join(" ").toStdString() << std::endl;
             extractArguments << file.absolutePath();
 
             extractionProcess.start(extractProgram, extractArguments);
