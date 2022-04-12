@@ -17,6 +17,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
@@ -33,8 +34,8 @@ public:
     QPushButton *StartButton;
     QLabel *SourceDirLabel;
     QLabel *label_3;
-    QLabel *LogLabel;
     QCheckBox *checkBoxCmakeGeneration;
+    QPlainTextEdit *plainTextEditLogs;
     QPushButton *ChooseFileButton;
     QMenuBar *menubar;
     QMenu *menuFile;
@@ -52,30 +53,29 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(70, 61, 73, 17));
+        label->setGeometry(QRect(20, 61, 73, 17));
         checkBoxRecursive = new QCheckBox(centralwidget);
         checkBoxRecursive->setObjectName(QString::fromUtf8("checkBoxRecursive"));
-        checkBoxRecursive->setGeometry(QRect(80, 130, 92, 23));
+        checkBoxRecursive->setGeometry(QRect(30, 130, 92, 23));
         StartButton = new QPushButton(centralwidget);
         StartButton->setObjectName(QString::fromUtf8("StartButton"));
         StartButton->setGeometry(QRect(200, 160, 111, 31));
         SourceDirLabel = new QLabel(centralwidget);
         SourceDirLabel->setObjectName(QString::fromUtf8("SourceDirLabel"));
-        SourceDirLabel->setGeometry(QRect(80, 100, 311, 21));
+        SourceDirLabel->setGeometry(QRect(30, 100, 391, 21));
         SourceDirLabel->setFrameShape(QFrame::Box);
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(70, 210, 67, 17));
-        LogLabel = new QLabel(centralwidget);
-        LogLabel->setObjectName(QString::fromUtf8("LogLabel"));
-        LogLabel->setGeometry(QRect(80, 250, 311, 191));
-        LogLabel->setFrameShape(QFrame::Box);
+        label_3->setGeometry(QRect(20, 210, 67, 17));
         checkBoxCmakeGeneration = new QCheckBox(centralwidget);
         checkBoxCmakeGeneration->setObjectName(QString::fromUtf8("checkBoxCmakeGeneration"));
-        checkBoxCmakeGeneration->setGeometry(QRect(80, 460, 241, 23));
+        checkBoxCmakeGeneration->setGeometry(QRect(30, 460, 241, 23));
+        plainTextEditLogs = new QPlainTextEdit(centralwidget);
+        plainTextEditLogs->setObjectName(QString::fromUtf8("plainTextEditLogs"));
+        plainTextEditLogs->setGeometry(QRect(30, 250, 441, 191));
         ChooseFileButton = new QPushButton(centralwidget);
         ChooseFileButton->setObjectName(QString::fromUtf8("ChooseFileButton"));
-        ChooseFileButton->setGeometry(QRect(390, 100, 41, 21));
+        ChooseFileButton->setGeometry(QRect(420, 100, 41, 21));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -104,7 +104,6 @@ public:
         StartButton->setText(QApplication::translate("MainWindow", "START", nullptr));
         SourceDirLabel->setText(QString());
         label_3->setText(QApplication::translate("MainWindow", "Log:", nullptr));
-        LogLabel->setText(QString());
         checkBoxCmakeGeneration->setText(QApplication::translate("MainWindow", "Generate CMAKE configuration", nullptr));
         ChooseFileButton->setText(QApplication::translate("MainWindow", "...", nullptr));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", nullptr));

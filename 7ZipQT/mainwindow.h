@@ -2,6 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFileDialog>
+#include <QDirIterator>
+#include <QString>
+#include <QTimer>
+#include <QMessageBox>
+#include <QDebug>
+#include <QProcess>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,9 +21,15 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+protected:
+   QString dir = "";
 
 private slots:
     void on_actionQuit_triggered();
+
+    void on_ChooseFileButton_clicked();
+
+    void on_StartButton_clicked();
 
 private:
     Ui::MainWindow *ui;
