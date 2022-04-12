@@ -49,13 +49,11 @@ void MainWindow::on_StartButton_clicked()
 
             QFileInfo file = archives.takeFirst();
             QProcess extractionProcess;
-            QString extractProgram = "7z2107-x64.exe";
+            QString extractProgram = "7z";
             QStringList extractArguments;
-            extractArguments << "e"; // extract files and directories
-            extractArguments << "-y"; // suppress questions
-            extractArguments << "-o" + file.absolutePath() + "/" + file.baseName(); // extract to installdir
+            extractArguments << "e " + file.absolutePath() + "/" + file.fileName();
+            extractArguments << "-o" + file.absolutePath() + "/"; // extract to installdir
             std::cout << extractProgram.toStdString() << " " << extractArguments.join(" ").toStdString() << std::endl;
-            extractArguments << file.absolutePath();
 
             extractionProcess.start(extractProgram, extractArguments);
             extractionProcess.waitForFinished(-1);
