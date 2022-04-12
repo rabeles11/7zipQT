@@ -1,0 +1,68 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "7ZipQT",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "7ZipQT::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-7ZipQT-Debug-a662380bea65bfeccf39.json",
+					"name" : "7ZipQT",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "7ZipQT_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-7ZipQT_autogen-Debug-2220fefaade00af57802.json",
+					"name" : "7ZipQT_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/rabeles/Documents/7zipQT/build-7ZipQT-Desktop-Debug",
+		"source" : "/home/rabeles/Documents/7zipQT/7ZipQT"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
