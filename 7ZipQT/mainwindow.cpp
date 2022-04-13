@@ -49,7 +49,7 @@ void MainWindow::on_StartButton_clicked()
 
             QFileInfo file = archives.takeFirst();
             QProcess extractionProcess;
-            QString extractProgram = "7z";
+            QString extractProgram = "./7za";
             QStringList extractArguments;
             extractArguments << "e " + file.absolutePath() + "/" + file.fileName();
             extractArguments << "-o" + file.absolutePath() + "/"; // extract to installdir
