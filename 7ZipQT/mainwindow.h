@@ -31,7 +31,10 @@ private slots:
 
     void on_StartButton_clicked();
 
+    void readyReadStandardOutput();
+
 private:
     Ui::MainWindow *ui;
+    QProcess extractionProcess;
 };
 #endif // MAINWINDOW_H

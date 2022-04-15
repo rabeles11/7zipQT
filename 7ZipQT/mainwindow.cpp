@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    connect(&extractionProcess, &QProcess::readyReadStandardOutput, this, &MainWindow::readyReadStandardOutput);
 }
 
 MainWindow::~MainWindow()
@@ -40,7 +42,16 @@ void MainWindow::on_StartButton_clicked()
              QDirIterator it(dir, QStringList() << "*.7z" << "*.zip", QDir::Files, QDirIterator::Subdirectories);
              while (it.hasNext()) {
                  QString dir = it.next();
-                 qDebug() << dir;
+                 QFileInfo file = dir;
+                 QString extractProgram = "./7za";
+                 QStringList extractArguments;
+                 extractArguments << "e " + file.absolutePath() + "/" + file.fileName();
+                 extractArguments << "-o" + file.absolutePath() + "/"; // extract to installdir
+                 std::cout << extractProgram.toStdString() << " " << extractArguments.join(" ").toStdString() << std::endl;
+
+                 extractionProcess.start(extractProgram, extractArguments);
+                 extractionProcess.waitForFinished(-1);
+
              }
 
          }
@@ -48,7 +59,6 @@ void MainWindow::on_StartButton_clicked()
             archives = directory.entryInfoList(QStringList() << "*.7z" << "*.zip",QDir::Files);
 
             QFileInfo file = archives.takeFirst();
-            QProcess extractionProcess;
             QString extractProgram = "./7za";
             QStringList extractArguments;
             extractArguments << "e " + file.absolutePath() + "/" + file.fileName();
@@ -64,5 +74,10 @@ void MainWindow::on_StartButton_clicked()
          msgBox.setText("U didnt select folder yet!!");
          msgBox.exec();
      }
+}
+
+void MainWindow::readyReadStandardOutput()
+{
+    ui->plainTextEditLogs->appendPlainText(extractionProcess.readAllStandardOutput());
 }
 
